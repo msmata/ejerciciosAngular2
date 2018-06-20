@@ -1,20 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { NgModule } from '@angular/core'; 
+import { BrowserModule } from '@angular/platform-browser'; 
+import { AppComponent } from './app.component'; 
+import { AppProduct } from './product.component' 
+import { AppInventory } from  './Inventory.component' 
+import { PageNotFoundComponent } from  './NotFound.component' 
+import { RouterModule, Routes } from '@angular/router';  
 
-import { AppComponent } from './app.component';
+const appRoutes: Routes = [ 
+   { path: 'Product', component: AppProduct }, 
+   { path: 'Inventory', component: AppInventory }, 
+   { path: '**', component: PageNotFoundComponent } 
+];  
 
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+@NgModule ({ 
+   imports: [ BrowserModule, 
+   RouterModule.forRoot(appRoutes)], 
+   declarations: [ AppComponent,AppProduct,AppInventory,PageNotFoundComponent], 
+   bootstrap: [ AppComponent ] 
+}) 
+
+export class AppModule {
+} 
