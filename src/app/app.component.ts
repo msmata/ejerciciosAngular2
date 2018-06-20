@@ -2,11 +2,6 @@ import { Component } from '@angular/core';
 
 @Component ({
    selector: 'my-app',
-   template: `
-   <ul>
-      <li><a [routerLink] = "['/Product']">Product</a></li>
-      <li><a [routerLink] = "['/Inventory']">Inventory</a></li>
-   </ul>
-   <router-outlet></router-outlet>`
+   template: '<product-form></product-form>'
 })
-export class AppComponent  { }
+export class AppComponent { }
