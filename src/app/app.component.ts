@@ -1,7 +1,21 @@
-import { Component } from '@angular/core';
+import {
+  Component
+} from '@angular/core';
 
-@Component ({
-   selector: 'my-app',
-   template: '<product-form></product-form>'
-})
-export class AppComponent { }
+import {
+  AppService
+} from './app.service';
+
+@Component({ 
+  selector: 'my-app',
+  template: '<div>{{value}}</div>',
+  providers: [AppService]
+}) 
+
+export class AppComponent {
+  value: string = '';
+  constructor(private _appService: AppService) { }
+  ngOnInit(): void {
+     this.value = this._appService.getApp();
+  }
+}
